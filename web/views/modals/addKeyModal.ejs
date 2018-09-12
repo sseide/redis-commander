@@ -5,13 +5,13 @@
   </div>
   <div class="modal-body">
     <form id="addKeyForm" action="apiv1/key/" method="POST" class="form-vertical">
-      <div class="control-group">
+      <div class="form-group">
         <label class="control-label">Key</label>
         <div class="controls">
-          <input id="keyValue" type="text" value="" />
+          <input id="keyValue" type="text" value="" class="form-control" />
         </div>
       </div>
-      <div class="control-group">
+      <div class="form-group">
         <label class="control-label">Type</label>
         <div class="controls">
           <select id="keyType" name="keyType">
@@ -21,11 +21,11 @@
             <option value="zset">Sorted Set</option>
           </select>
           <span id="scoreWrap">Score
-          <input id="keyScore" name="keyScore" class="input-mini" type="text"/>
+          <input id="keyScore" name="keyScore" class="input-mini form-control" type="text" />
           </span>
         </div>
       </div>
-      <div class="control-group" style="display:inline;">
+      <div class="form-group" style="display:inline;">
 
         <div class="controls">
 
@@ -38,7 +38,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal">Close</button>
+    <button class="btn btn-default" data-dismiss="modal">Close</button>
     <button id="saveKeyButton" type="button" class="btn btn-primary" onclick="$('#addKeyForm').submit()">Save</button>
   </div>
 </div>

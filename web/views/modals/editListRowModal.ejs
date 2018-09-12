@@ -4,19 +4,19 @@
     <h3>Edit Row</h3>
   </div>
   <div class="modal-body">
-    <form id="editListRowForm" action="apiv1/editListRow/" method="POST" class="form-vertical">  
+    <form id="editListRowForm" action="apiv1/editListRow/" method="POST" class="form-vertical">
       <h3>Key</h3>
-      <input id="listKey" name="listKey" type="text" readonly/>
+      <input id="listKey" name="listKey" type="text" readonly class="form-control" />
       <h3>Index</h3>
-      <input id="listIndex" name="listIndex" type="text" readonly/>
+      <input id="listIndex" name="listIndex" type="text" readonly class="form-control" />
       <h3>Value</h3>
       <textarea id="listValue" name="listValue" style="width: 500px; height: 250px;"></textarea>
-      <input id="editListConnectionId" name="listConnectionId" hidden/>
+      <input id="editListConnectionId" name="listConnectionId" hidden class="form-control" />
       <br>
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal">Close</button>
+    <button class="btn btn-default" data-dismiss="modal">Close</button>
     <button id="removeListValueButton" class="btn btn-danger" data-loading-text="<i class='icon-refresh'></i> Removing..." onclick="removeListElement()">Remove Element</button>
     <button id="editListValueButton" class="btn btn-primary" data-loading-text="<i class='icon-refresh'></i> Saving..." onclick="$('#editListRowForm').submit()">Save</button>
   </div>

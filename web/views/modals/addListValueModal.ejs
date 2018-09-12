@@ -5,24 +5,24 @@
   </div>
   <div class="modal-body">
     <form id="addListValueForm" action="apiv1/listvalue/" method="POST" class="form-vertical">
-      <input id="key" name="key" type="hidden"/>
-      <label class="radio inline">
-        <input id="typeLpush" type="radio" name="type" value="lpush" checked="checked"/>
+      <input id="key" name="key" type="hidden" class="form-control" />
+      <label class="radio-inline">
+        <input id="typeLpush" type="radio" name="type" value="lpush" checked />
         LPUSH
       </label>
-      <label class="radio inline">
-        <input id="typeRpush" type="radio" name="type" value="rpush"/>
+      <label class="radio-inline">
+        <input id="typeRpush" type="radio" name="type" value="rpush" />
         RPUSH
       </label>
-      <br/>
+      <br>
       <h3>Value</h3>
       <textarea id="addStringValue" name="stringValue" style="width: 500px; height: 250px;"></textarea>
-      <input id="addListConnectionId" name="listConnectionId" hidden/>
+      <input id="addListConnectionId" name="listConnectionId" hidden class="form-control" />
       <br>
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal">Close</button>
+    <button class="btn btn-default" data-dismiss="modal">Close</button>
     <button id="saveValueButton" class="btn btn-primary" data-loading-text="<i class='icon-refresh'></i> Saving..." onclick="$('#addListValueForm').submit()">Save</button>
   </div>
 </div>

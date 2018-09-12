@@ -6,17 +6,17 @@
   <div class="modal-body">
     <form id="editHashFieldForm" action="apiv1/editHashRow/" method="POST" class="form-vertical">
       <h3>Key</h3>
-      <input id="hashKey" name="hashKey" type="text" readonly/>
+      <input id="hashKey" name="hashKey" type="text" readonly class="form-control" />
       <h3>Field</h3>
-      <input id="hashField" name="hashField" type="text" readonly/>
+      <input id="hashField" name="hashField" type="text" readonly class="form-control" />
       <h3>Value</h3>
       <textarea id="hashFieldValue" name="hashFieldValue" style="width: 500px; height: 250px;"></textarea>
-      <input id="hashConnectionId" name="hashConnectionId" hidden/>
+      <input id="hashConnectionId" name="hashConnectionId" hidden class="form-control" />
       <br>
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal">Close</button>
+    <button class="btn btn-default" data-dismiss="modal">Close</button>
     <button id="removeHashFieldButton" class="btn btn-danger" data-loading-text="<i class='icon-refresh'></i> Removing..." onclick="removeHashField()">Remove Field</button>
     <button id="editHashFieldButton" class="btn btn-primary" data-loading-text="<i class='icon-refresh'></i> Saving..." onclick="$('#editHashFieldForm').submit()">Save</button>
   </div>

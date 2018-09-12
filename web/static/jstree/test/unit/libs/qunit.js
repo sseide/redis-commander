@@ -1088,7 +1088,7 @@ QUnit.load = function() {
     config[ val.id ] = QUnit.urlParams[ val.id ];
     urlConfigHtml += "<input id='qunit-urlconfig-" + escapeText( val.id ) +
       "' name='" + escapeText( val.id ) +
-      "' type='checkbox'" + ( config[ val.id ] ? " checked='checked'" : "" ) +
+      "' type='checkbox'" + ( config[ val.id ] ? " checked" : "" ) +
       " title='" + escapeText( val.tooltip ) +
       "'><label for='qunit-urlconfig-" + escapeText( val.id ) +
       "' title='" + escapeText( val.tooltip ) + "'>" + val.label + "</label>";
