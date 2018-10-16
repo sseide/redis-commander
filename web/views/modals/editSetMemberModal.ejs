@@ -4,14 +4,13 @@
     <h3>Edit Set Member</h3>
   </div>
   <div class="modal-body">
-    <form id="editSetMemberForm" action="apiv1/editSetMember/" method="POST" class="form-vertical">
+    <form id="editSetMemberForm" action="apiv1/editSetMember/" method="POST" class="form-vertical label-big">
       <input id="setKey" name="setKey" hidden class="form-control" />
-      <h3>Member</h3>
+      <label class="control-label lead" for="setOldMember">Member</label>
       <input id="setOldMember" name="setOldMember" type="text" readonly class="form-control" />
-      <h3>Updated Member</h3>
+      <label class="control-label lead" for="setMember">Updated Member</label>
       <textarea id="setMember" name="setMember" style="width: 500px; height: 150px;"></textarea>
       <input id="setConnectionId" name="setConnectionId" hidden class="form-control" />
-      <br>
     </form>
   </div>
   <div class="modal-footer">

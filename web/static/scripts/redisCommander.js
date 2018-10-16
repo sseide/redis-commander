@@ -163,9 +163,7 @@ function getFullKeyPath (node) {
   if (node.parent === '#') {
       return '';
   }
-  var keyList = node.parents.slice(0,-2).reverse();
-  keyList.push(node.id);
-  return keyList.join(foldingCharacter);
+  return node.id.substr(getRootConnection(node).length + 1);
 }
 
 function getRootConnection (node) {
@@ -304,6 +302,7 @@ function setupEditZSetButton () {
 }
 
 function setupAddKeyButton (connectionId) {
+  $('#stringValue').val('');
   $('#keyValue').keyup(function () {
     var action = "apiv1/key/" + encodeURIComponent(connectionId) + "/" + encodeURIComponent($(this).val());
     $('#addKeyForm').attr("action", action);
@@ -373,7 +372,7 @@ function selectTreeNodeString (data) {
   $('#body').html(html);
 
   try {
-    data.value = JSON.stringify(JSON.parse(data.value), null, '  ');
+    JSON.parse(data.value);
     $('#isJson').val('true');
   } catch (ex) {
     $('#isJson').val('false');
@@ -383,20 +382,9 @@ function selectTreeNodeString (data) {
   try {
     $('#jqtree_string_div').html(JSONTree.create(JSON.parse(data.value)));
   } catch (err) {
-    $('#jqtree_string_div').text(err.message)
+    $('#jqtree_string_div').text('Text is no valid JSON: ' + err.message);
   }
 
-  $('#stringValue').keyup(function () {
-    $('#stringValueClippy').clippy({'text': $(this).val(), clippy_path: "clippy-jquery/clippy.swf"});
-    var dataTree;
-    try {
-      dataTree = JSONTree.create(JSON.parse($(this).val()));
-    } catch (err) {
-      dataTree = err.message;
-    }
-    $('#jqtree_string_div').text(dataTree);
-  }).keyup();
-  $('.clippyWrapper').tooltip();
   $('#editStringForm').ajaxForm({
     beforeSubmit: function () {
       console.log('saving');
@@ -580,7 +568,7 @@ function encodeString (connectionId, key) {
 }
 
 function deleteBranch (connectionId, branchPrefix) {
-  var query = branchPrefix + ':*';
+  var query = branchPrefix + foldingCharacter + '*';
   var result = confirm('Are you sure you want to delete "' + query + ' from ' + connectionId + '"? This will delete all children as well!');
   if (result) {
     $.post('apiv1/keys/' + encodeURIComponent(connectionId) + "/" + encodeURIComponent(query) + '?action=delete', function (data, status) {
@@ -956,7 +944,7 @@ function removeServer (connectionId) {
       if (status !== 'success') {
         return alert("Could not remove instance");
       }
-      $(window).unbind('beforeunload'); // not sure if necessary
+      $(window).unbind('beforeunload');
       location.reload();
     });
   }
